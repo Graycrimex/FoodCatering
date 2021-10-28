@@ -7,10 +7,10 @@ import javax.swing.event.*;
 
 public class FoodCatering implements ItemListener, ActionListener{
 	
-	JRadioButton rbtnSenior, rbtnJunior;
-	JCheckBox chkBurger, chkCBurger, chkCEBurger;
-	double cost, discount = 0.20;
-	String checked;
+	private JRadioButton rbtnSenior, rbtnJunior;
+	private JCheckBox chkBurger, chkCBurger, chkCEBurger;
+	private double cost, discount = 0.20;
+	private String checked;
 	
 	public FoodCatering(){
 		
@@ -61,23 +61,20 @@ public class FoodCatering implements ItemListener, ActionListener{
 			cost = 0;
 			checked = "";
 			
-			if(chkBurger.isSelected()){
+		if(chkBurger.isSelected()){
 			checked = checked + "\nHamburger: 20";
-			cost = cost + 20;
-			}
-			if(chkCBurger.isSelected()){
+			cost += 20;
+		}
+		
+		if(chkCBurger.isSelected()){
 			checked = checked + "\nCheeseburger: 30";
-			cost = cost + 30;
-			}
+			cost += 30;
+		}
 		
-			if(chkCEBurger.isSelected()){
+		if(chkCEBurger.isSelected()){
 			checked = checked + "\nCheeseburger w egg: 40";
-			cost = cost + 40;
-			
-			
-			
-			}
-		
+			cost += 40;
+		}
 		
 		
 		
@@ -91,9 +88,6 @@ public class FoodCatering implements ItemListener, ActionListener{
 		int state = ie.getStateChange();
 		
 
-	
-		
-
 		if(state == ItemEvent.SELECTED){
 		
 			
@@ -103,7 +97,7 @@ public class FoodCatering implements ItemListener, ActionListener{
 			
 			}else if(rbtnJunior.isSelected()){
 			
-			JOptionPane.showMessageDialog(null," " + checked + "\n-------" + "\nTotal: " + cost);
+			JOptionPane.showMessageDialog(null,checked + "\n-------" + "\nTotal: " + cost);
 			
 		}}
 		
